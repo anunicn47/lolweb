@@ -429,7 +429,7 @@
 			<source src="source/media/opening.mp3" type="audio/mpeg">
 			Browser Anda tidak mendukung elemen audio.
 		</audio>
-		<div class="preload">TUNGGU SEBENTAR</div>
+		<div class="preload">WAIT FOR A WHILE</div>
 		<div class="vidcont myoverlay">
 			<div class="divvideo">
 				<video id="myVideo" width="100%" height="100%">
@@ -511,7 +511,7 @@
 	  		namaku=localStorage.getItem("nama");
 			blur="true"; 
 			$(window).on('load',function(){
-				$('.preload').css('background','#00000000').css('color','#FFFFFF00').css('backdrop-filter','blur(0px)').text('SELESAI').css('z-index','-2');
+				$('.preload').css('background','#00000000').css('color','#FFFFFF00').css('backdrop-filter','blur(0px)').text('DONE').css('z-index','-2');
 			});
 	  		function init(){
 	  			startTime();
@@ -732,11 +732,11 @@
 				$("#nama").append('<span id="spannama3" onclick="gantinama()">'+localStorage.getItem("nama")+'</span>')
 			}
 			cari=true;
-			selesai=false;
+			DONE=false;
 			function carigoogle(){
 				if (cari){
 					cari=false;
-					selesai=false;
+					DONE=false;
 					$('.ucapan').text('');
 					$('.ucapan *').remove();
 					$(".ucapan").append("<input type='text' id='textcari' style='background:#00000000; width:300px; transform:translateX(-70px); color:#000; outline: none; box-sizing:border-box; border: 0px solid #000; font-size:20px' placeholder='Cari di sini' autofocus></input><span class='tombolcari'; style='transition: all ease 0.3s; border-radius:10px; width:60px; height:50px; top:calc(50% - 25px); right:90px; line-height:50px; position:absolute;' onclick='cariok()'>Cari</span><span class='tombolcari'; style='transition: all ease 0.3s; border-radius:10px; width:60px; height:50px; top:calc(50% - 25px); right:20px; line-height:50px; position:absolute;' onclick='caribatal()'>Batal</span>");
@@ -754,7 +754,7 @@
 					    }
 					});
 				}
-				if(selesai){
+				if(DONE){
 					cari=true;
 				}
 			}
@@ -775,7 +775,7 @@
 				else if(h>9)tulis('siang','selamat bekerja')
 				else if(h>4)tulis('pagi','selamat beraktivitas');
 				else tulis('malam','seharusnya kamu sudah tidur');
-				selesai=true;
+				DONE=true;
 			}
 			function resetposisi(){
 				mywindow.style.top = "calc(50% - "+mywindow.clientHeight/2+"px)";
