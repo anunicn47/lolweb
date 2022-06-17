@@ -51,7 +51,7 @@
          }
       </script>
       <script type="text/javascript">
-         function play() {//Link Audio Bisa Diganti
+         function play() {//Link Audio Bisa DiChange
          var audio = new Audio('https://ayang.likeadream.repl.co/Dengarkanlah.mp3');audio.play();}
          
                      const swals = Swal.mixin({allowOutsideClick: false, cancelButtonColor: '#FF0040',});
@@ -59,13 +59,13 @@
                      const swalst = Swal.mixin({allowOutsideClick: false, showConfirmButton: false, timer: 3000, timerProgressBar: true,});
                      
                      async function mulaitanya(){
-                     	var { isConfirmed: tanyawal } = await swals.fire({title: `Hai kamu!`, text: `Mau isi nama kamu dulu atau langsung aja?`, imageUrl: 'https://i.postimg.cc/0j2LDLxP/heart-happy.gif', imageWidth: 120, imageHeight: 120, confirmButtonText: 'Isi Nama', cancelButtonText: 'Langsung Aja', allowOutsideClick: false, showCancelButton: true,
-                         });if(tanyawal){mulai();play();} else {nama = 'Kamu';kuis();play();}
+                     	var { isConfirmed: tanyawal } = await swals.fire({title: `Hey, you!`, text: `Do you want to fill in your name first or just do it??`, imageUrl: 'https://i.postimg.cc/0j2LDLxP/heart-happy.gif', imageWidth: 120, imageHeight: 120, confirmButtonText: 'Fill in the Name', cancelButtonText: 'To the point', allowOutsideClick: false, showCancelButton: true,
+                         });if(tanyawal){mulai();play();} else {nama = 'You';kuis();play();}
                      }
          
                      async function mulai(){
                          var { value: nama } = await swals.fire({
-                             title: 'Masukin nama kamu',
+                             title: 'Enter your name',
                              input: 'text',
                              imageUrl: 'https://i.postimg.cc/vDFQZzhM/yyy.gif', imageWidth: 120, imageHeight: 120,
                              allowOutsideClick: false,
@@ -75,40 +75,40 @@
                          	window.nama = nama;
                              kuis();                                 
                          } else {
-                             await swals.fire('Ups!', 'Nama tidak boleh kosong atau lebih dari 10 karakter, ya!');
+                             await swals.fire('Ups!', 'you know Name cannot be empty or more than 10 characters , ya!');
                              mulai();
                          }
                      }
                      async function kuis(){
                                text = "Dear, " + nama + ".    ";
                                emotnama = "&#10084;";
-                               text2 = "Kalo " + nama + " tau, aku sedang mengharapkan pesan darimu yang selalu membuatku tersenyum ><       ";
+                                 text2 = "If " + nama + " you know, I'm waiting for a message from you that always makes me smile ><       ";
                                pilihwarna();
                       }
                       mulaitanya();
       </script>
       <script>
-         maupilih = "mau pilih warna apa nih?";
-         warnaA = "Ungu";
-         warnaB = "Merah";
-         vyakin = "Yakin";
-         vganti = "Ganti";
+         maupilih = "What color do you want to choose?";
+         warnaA = "Red";
+         warnaB = "Purple";
+         vCertain = "Certain";
+         vChange = "Change";
          emotketawa = "&#129315;";
          
          teksatas = "Yeayy!";
          teksatasoke = "Oke!";
-         teksakhiroke = "Sekarang lihat ini ya ><";
-         teksbawahA = "Memilih Ungu... Kamu adalah milikku!";
-         teksbawahAA = "yakin pilih warna Ungu?";
-         teksbawahAAA = "Atau mau ganti warna aja nih?";
-         teksbawahB = "Memilih Merah... Kamu adalah kesayanganku!";
-         teksbawahBB = "yakin pilih warna Merah?";
-         teksbawahBBB = "Atau mau ganti warna aja nih?";
+         teksakhiroke = "Now look at this huh ><";
+         teksbawahA = "Choosing Purple... You are mine!";
+         teksbawahAA = "Certain choose the color Purple?";
+         teksbawahAAA = "Or do you want to change the color?";
+         teksbawahB = "Choose Purple... Youare my darling!!";
+         teksbawahBB = "Certain choose the color Purple?";
+         teksbawahBBB = "Or do you want to change the color?";
          
-         teksgantiA = "Oke, memilih Merah!";
-         teksgantiAA = "Sama aja sih sebenernya, cuma kalo Merah rasa Stroberi" + emotketawa;
-         teksgantiB = "Oke, memilih Ungu!";
-         teksgantiBB = "Sama aja sih sebenernya, cuma beda warna doang" + emotketawa;
+         teksChangeA = "Oke, choose Purple!";
+         teksChangeAA = "It's actually the same, only If Purple tastes Strawberry" + emotketawa;
+         teksChangeB = "Oke, choose Purple!";
+         teksChangeBB = "It's actually the same thing, just a different color" + emotketawa;
          
          gambar1 = "https://i.postimg.cc/hj9kJXdg/bear-run-cant-run.gif";
          gambar2 = "https://i.postimg.cc/mDCsQdKv/gigit.gif";
@@ -131,8 +131,8 @@
              var { isConfirmed: warna2 } = await swals.fire({
              title: nama + ' ' + teksbawahAA, 
              text: '' + teksbawahAAA, showCancelButton: true,
-             confirmButtonText: '' + vyakin,
-             cancelButtonText: '' + vganti,
+             confirmButtonText: '' + vCertain,
+             cancelButtonText: '' + vChange,
          });
          if(warna2){
              await swals.fire({
@@ -142,8 +142,8 @@
              showDiv();
            } else {
              await swals.fire({
-               title: '' + teksgantiA,
-               html: '' + teksgantiAA,
+               title: '' + teksChangeA,
+               html: '' + teksChangeAA,
                imageUrl: '' + gambar3, imageWidth: 120, imageHeight: 120,
              });
              showDiv();
@@ -158,13 +158,13 @@
              var { isConfirmed: warna2 } = await swals.fire({
              title: nama + ' ' + teksbawahBB, 
              text: '' + teksbawahBBB, showCancelButton: true,
-             confirmButtonText: '' + vganti,
-             cancelButtonText: '' + vyakin,
+             confirmButtonText: '' + vChange,
+             cancelButtonText: '' + vCertain,
          });
          if(warna2){    
              await swals.fire({
-               title: '' + teksgantiB,
-               html: '' + teksgantiBB,
+               title: '' + teksChangeB,
+               html: '' + teksChangeBB,
                imageUrl: '' + gambar3, imageWidth: 120, imageHeight: 120,
              });
              showDiv();
