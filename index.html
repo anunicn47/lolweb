@@ -379,7 +379,7 @@
 	  		top: 35px;
 	  		opacity: 1;
 	  	}
-	  	#nama *:hover, #textLook for:hover	  		color: #FFFFFFA0;
+	  	#nama *:hover, #textcari:hover	  		color: #FFFFFFA0;
 	  		color: #FFFFFFA0;
 	  		color: #FFFFFFA0;
 	  	}
@@ -387,7 +387,7 @@
 	  		background: #FFFFFF30;
 	  		cursor: pointer;
 	  	}
-	  	.tombolLook for:hover{
+	  	.tombolcari:hover{
 	  		background: rgb(10,107,254);
 	  		color: #FFFFFF;
 	  	}
@@ -449,7 +449,7 @@
 				<div class="contjam">
 					<div class="jam">-:-</div>
 					<div class="tanggal">-</div>
-					<div class="ucapan myoverlay" onclick="Look forgoogle()"><span id="spannama2"></span></div>	
+					<div class="ucapan myoverlay" onclick="carigoogle()"><span id="spannama2"></span></div>	
 				</div>
 				<div class="shortcut kanan" onclick="toggleFullscreen()">Fullscreen</div>
 				<div class="shortcut kiri" onclick="wpblur()">Blur</div>
@@ -731,38 +731,38 @@
 				$("#nama *").remove();
 				$("#nama").append('<span id="spannama3" onclick="gantinama()">'+localStorage.getItem("nama")+'</span>')
 			}
-			Look for=true;
+			cari=true;
 			DONE=false;
-			function Look forgoogle(){
-				if (Look for){
-					Look for=false;
+			function carigoogle(){
+				if (cari){
+					cari=false;
 					DONE=false;
 					$('.ucapan').text('');
 					$('.ucapan *').remove();
-					$(".ucapan").append("<input type='text' id='textLook for' style='background:#00000000; width:300px; transform:translateX(-70px); color:#000; outline: none; box-sizing:border-box; border: 0px solid #000; font-size:20px' placeholder='Look for di sini' autofocus></input><span class='tombolLook for'; style='transition: all ease 0.3s; border-radius:10px; width:60px; height:50px; top:calc(50% - 25px); right:90px; line-height:50px; position:absolute;' onclick='Look forok()'>Look for</span><span class='tombolLook for'; style='transition: all ease 0.3s; border-radius:10px; width:60px; height:50px; top:calc(50% - 25px); right:20px; line-height:50px; position:absolute;' onclick='Look forbatal()'>Batal</span>");
-					document.querySelector('#textLook for').addEventListener('keyup', function (e) {
+					$(".ucapan").append("<input type='text' id='textcari' style='background:#00000000; width:300px; transform:translateX(-70px); color:#000; outline: none; box-sizing:border-box; border: 0px solid #000; font-size:20px' placeholder='Cari di sini' autofocus></input><span class='tombolcari'; style='transition: all ease 0.3s; border-radius:10px; width:60px; height:50px; top:calc(50% - 25px); right:90px; line-height:50px; position:absolute;' onclick='cariok()'>Look for</span><span class='tombolcari'; style='transition: all ease 0.3s; border-radius:10px; width:60px; height:50px; top:calc(50% - 25px); right:20px; line-height:50px; position:absolute;' onclick='caribatal()'>Batal</span>");
+					document.querySelector('#textcari').addEventListener('keyup', function (e) {
 					    if (e.key === 'Enter') {
-				      		Look forok();
+				      		cariok();
 					    }
 					    if(e.key === "Escape") {
-					    	Look forbatal();
+					    	caribatal();
 					    }
 					});
 					document.querySelector('body').addEventListener('keyup', function (e) {
 					    if(e.key === "Escape") {
-					    	Look forbatal();
+					    	caribatal();
 					    }
 					});
 				}
 				if(DONE){
-					Look for=true;
+					cari=true;
 				}
 			}
-			function Look forok(){
-				window.open("https://www.google.com/search?q="+$('#textLook for').val());
-				Look forbatal();
+			function cariok(){
+				window.open("https://www.google.com/search?q="+$('#textcari').val());
+				caribatal();
 			}
-			function Look forbatal(){
+			function caribatal(){
 				$('.ucapan *').remove();
 				$(".ucapan").append('<span id="spannama2"></span>');
 				var today = new Date();
@@ -773,7 +773,7 @@
 				else if(h>14)tulis('sore','Congratulations menjalani hari');
 				else if(h>13)tulis('siang','tetap semangat')
 				else if(h>9)tulis('siang','Congratulations bekerja')
-				else if(h>4)tulis('pagi','Congratulations beraktivitas');
+				else if(h>4)tulis('Morning','Congratulations activity');
 				else tulis('malam','seharusnya kamu sudah tidur');
 				DONE=true;
 			}
@@ -806,14 +806,14 @@
 				document.querySelector('.jam').innerHTML =	h + ":" + m;
 				var t = setTimeout(startTime, 500);
 				mytanggal();
-				if(Look for){
+				if(cari){
 					if(h>23)tulis('malam','seharusnya kamu sudah tidur');
 					else if(h>18)tulis('malam','waktunya mengisi energi');
 					else if(h>17)tulis('petang','Congratulations menikmati senja');
 					else if(h>14)tulis('sore','Congratulations menjalani hari');
 					else if(h>13)tulis('siang','tetap semangat')
 					else if(h>9)tulis('siang','Congratulations bekerja')
-					else if(h>4)tulis('pagi','Congratulations beraktivitas');
+					else if(h>4)tulis('Morning','Congratulations activity');
 					else tulis('malam','seharusnya kamu sudah tidur');
 					if(h>18)     document.querySelector('img').src="source/media/wp1.png";
 					else if(h>4) document.querySelector('img').src="source/media/wp2.png";
